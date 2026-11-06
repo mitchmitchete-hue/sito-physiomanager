@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial e Guide - Physio Simple Manager</title>
+    <meta name="description" content="Guide video e tutorial per l'utilizzo in sicurezza di Physio Simple Manager, protezione file e backup locali.">
+    <style>
+        :root {
+            --primary: #008080;
+            --primary-dark: #005959;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .back-home {
+            font-size: 0.95rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Tutorial */
+        .tutorial-hero {
+            padding: 45px 0 30px;
+            text-align: center;
+        }
+
+        .tutorial-hero h1 {
+            font-size: 2.4rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .tutorial-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Grid Tutorial */
+        .tutorials-section {
+            padding: 20px 0 60px;
+        }
+
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .tutorial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .tutorial-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Anteprima Video Leggera (Thumbnail finta con icona Play o iframe leggero) */
+        .video-thumbnail {
+            position: relative;
+            background-color: #0f172a;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .play-btn-overlay {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .tutorial-card:hover .play-btn-overlay {
+            transform: scale(1.1);
+        }
+
+        .play-btn-overlay::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 16px solid #ffffff;
+            margin-left: 3px;
+        }
+
+        .tutorial-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .tutorial-body h2 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .tutorial-body p {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .tutorial-tips {
+            background-color: #f1f5f9;
+            border-left: 3px solid var(--primary);
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            color: #334155;
+            margin-top: auto;
+        }
+
+        /* Modale per riprodurre il video YouTube */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-video-content {
+            background-color: #000000;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 850px;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .modal-video-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: #ffffff;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <img src="../logo.png" alt="Logo" onerror="this.style.display='none'">
+                Physio Simple Manager
+            </a>
+            <a href="../index.html" class="back-home">← Torna alla Home</a>
+        </div>
+    </header>
+
+    <!-- Hero Tutorial -->
+    <section class="tutorial-hero">
+        <div class="container">
+            <h1>Guide Video & Sicurezza dei Dati</h1>
+            <p>Impara in pochi minuti a configurare il gestionale, proteggere il tuo archivio locale in studio e gestire i backup in autonomia.</p>
+        </div>
+    </section>
+
+    <!-- Griglia Tutorial -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="tutorials-grid">
+
+                <!-- Video 1: Dove finiscono i file e sicurezza locale -->
+                <div class="tutorial-card">
+                    <div class="video-thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/TUO_ID_VIDEO_1?autoplay=1')">
+                        <!-- Sostituisci l'src con un'immagine di anteprima reale se vuoi, es. thumbnail1.jpg -->
+                        <div style="position: absolute; inset:0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);"></div>
+                        <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #5eead4; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">VIDEO 1</span>
+                        <div class="play-btn-overlay"></div>
+                    </div>
+                    <div class="tutorial-body">
+                        <h2>Dove finiscono i file e come proteggerli</h2>
+                        <p>Scopri dove il gestionale salva i dati sul tuo computer (cartella di sistema) e perché il database SQLite isolato garantisce la massima privacy senza passaggi in cloud.</p>
+                        <div class="tutorial-tips">
+                            <strong>Consiglio di sicurezza:</strong> Imposta sempre una password complessa o il blocco schermo automatico su Windows quando ti allontani dalla scrivania.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2: Backup sicuro in autonomia -->
+                <div class="tutorial-card">
+                    <div class="video-thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/TUO_ID_VIDEO_2?autoplay=1')">
+                        <div style="position: absolute; inset:0; background: linear-gradient(135deg, #1e293b 100%, #0f172a 0%);"></div>
+                        <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #5eead4; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">VIDEO 2</span>
+                        <div class="play-btn-overlay"></div>
+                    </div>
+                    <div class="tutorial-body">
+                        <h2>Come fare un backup sicuro in autonomia</h2>
+                        <p>Essendo un software locale, la custodia dei dati è affidata al professionista. Ti mostriamo quanto è semplice e veloce copiare periodicamente l'archivio su una chiavetta USB o un disco esterno protetto.</p>
+                        <div class="tutorial-tips">
+                            <strong>Garanzia contro i guasti:</strong> Con una copia di backup periodica, i dati dei tuoi pazienti sono al 100% al sicuro anche in caso di rottura improvvisa del PC.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal per riproduzione video senza rallentare la pagina -->
+    <div id="video-modal" class="modal" onclick="closeVideoModal()">
+        <div class="modal-video-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeVideoModal()">&times;</span>
+            <div id="iframe-container" style="width:100%; height:100%;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Physio Simple Manager</strong> &copy; 2026 — Un progetto realizzato da fisioterapista per fisioterapisti.</p>
+            <p style="margin-top: 8px;"><a href="../index.html">Torna al sito principale</a></p>
+        </div>
+    </footer>
+
+    <!-- Script per apertura modale video YouTube -->
+    <script>
+        const videoModal = document.getElementById('video-modal');
+        const iframeContainer = document.getElementById('iframe-container');
+
+        function openVideoModal(youtubeUrl) {
+            iframeContainer.innerHTML = `<iframe src="${youtubeUrl}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            videoModal.style.display = "flex";
+        }
+
+        function closeVideoModal() {
+            videoModal.style.display = "none";
+            iframeContainer.innerHTML = ""; // Ferma la riproduzione del video alla chiusura
+        }
+    </script>
+
+</body>
+</html>
