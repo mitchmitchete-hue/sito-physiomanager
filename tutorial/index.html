@@ -272,7 +272,7 @@
     <section class="tutorial-hero">
         <div class="container">
             <h1>Guide Video & Sicurezza dei Dati</h1>
-            <p>Impara in pochi minuti a configurare il gestionale, proteggere il tuo archivio locale in studio e gestire i backup in autonomia.</p>
+            <p>Impara in pochi minuti a installare il gestionale, proteggere l'archivio con la Password Master e gestire i backup cifrati in autonomia. I video sono in preparazione: nel frattempo qui trovi i passaggi essenziali.</p>
         </div>
     </section>
 
@@ -286,14 +286,14 @@
                     <div class="video-thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/TUO_ID_VIDEO_1?autoplay=1')">
                         <!-- Sostituisci l'src con un'immagine di anteprima reale se vuoi, es. thumbnail1.jpg -->
                         <div style="position: absolute; inset:0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);"></div>
-                        <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #5eead4; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">VIDEO 1</span>
+                        <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #5eead4; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">VIDEO 1 • IN PREPARAZIONE</span>
                         <div class="play-btn-overlay"></div>
                     </div>
                     <div class="tutorial-body">
-                        <h2>Dove finiscono i file e come proteggerli</h2>
-                        <p>Scopri dove il gestionale salva i dati sul tuo computer (cartella di sistema) e perché il database SQLite isolato garantisce la massima privacy senza passaggi in cloud.</p>
+                        <h2>Prima installazione: Gmail, Password Master e codice di recupero</h2>
+                        <p>Prima di installare, prepara una Gmail con la verifica in due passaggi attiva e crea una <strong>password per le app</strong> (Google non accetta la password normale). Al primo avvio il programma ti chiede la Gmail, la password per le app e una <strong>Password Master</strong> (almeno 8 caratteri con una lettera, un numero e un simbolo): da quel momento tutti i dati sono cifrati sul tuo PC. Alla prima attivazione serve internet.</p>
                         <div class="tutorial-tips">
-                            <strong>Consiglio di sicurezza:</strong> Imposta sempre una password complessa o il blocco schermo automatico su Windows quando ti allontani dalla scrivania.
+                            <strong>Codice di recupero:</strong> arriva via email alla stessa Gmail e serve se dimentichi la Password Master o cambi computer. Non cancellare quell'email: senza password e senza codice nessuno, nemmeno lo sviluppatore, può aprire i dati. Se Google cancella la password per le app (per esempio dopo un cambio della password dell'account), creane una nuova e aggiornala da Configurazione → Sicurezza Accesso → "Aggiorna Gmail o password per le app".
                         </div>
                     </div>
                 </div>
@@ -302,14 +302,14 @@
                 <div class="tutorial-card">
                     <div class="video-thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/TUO_ID_VIDEO_2?autoplay=1')">
                         <div style="position: absolute; inset:0; background: linear-gradient(135deg, #1e293b 100%, #0f172a 0%);"></div>
-                        <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #5eead4; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">VIDEO 2</span>
+                        <span style="position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #5eead4; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">VIDEO 2 • IN PREPARAZIONE</span>
                         <div class="play-btn-overlay"></div>
                     </div>
                     <div class="tutorial-body">
                         <h2>Come fare un backup sicuro in autonomia</h2>
-                        <p>Essendo un software locale, la custodia dei dati è affidata al professionista. Ti mostriamo quanto è semplice e veloce copiare periodicamente l'archivio su una chiavetta USB o un disco esterno protetto.</p>
+                        <p>Essendo un software locale, la custodia dei dati è affidata al professionista. Ogni settimana scarica il backup da Configurazione → Sicurezza Accesso → "📦 Scarica Backup": è un file cifrato, che si apre solo con la Password Master o con il codice di recupero, anche su un computer nuovo.</p>
                         <div class="tutorial-tips">
-                            <strong>Garanzia contro i guasti:</strong> Con una copia di backup periodica, i dati dei tuoi pazienti sono al 100% al sicuro anche in caso di rottura improvvisa del PC.
+                            <strong>Dove conservarlo:</strong> carica una copia su Google Drive (con la verifica in due passaggi attiva sull'account) e tienine un'altra su una chiavetta USB. Così i dati dei tuoi pazienti restano al sicuro anche in caso di guasto o furto del PC. Non conservare mai copie in chiaro dei dati nel cloud.
                         </div>
                     </div>
                 </div>
@@ -340,6 +340,7 @@
         const iframeContainer = document.getElementById('iframe-container');
 
         function openVideoModal(youtubeUrl) {
+            if (youtubeUrl.includes("TUO_ID")) return; // video non ancora pubblicato: sostituire TUO_ID_VIDEO_N con l'ID di YouTube
             iframeContainer.innerHTML = `<iframe src="${youtubeUrl}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             videoModal.style.display = "flex";
         }
