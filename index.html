@@ -421,7 +421,7 @@
             </div>
 
             <span id="version-info" class="cta-note">Nessuna registrazione richiesta • Pronto all'uso in 1 minuto</span>
-            <span class="sys-req">Requisiti: Windows 10 o Windows 11 (64-bit) • Connessione internet richiesta solo per invio TS, email e aggiornamenti</span>
+            <span class="sys-req">Requisiti: Windows 10 o Windows 11 (64-bit) • Un indirizzo Gmail con password per le app (per il codice di recupero e l'invio delle email) • Connessione internet richiesta solo alla prima attivazione e per invio TS, email e aggiornamenti</span>
 
             <!-- Nota rassicurante per Windows SmartScreen -->
             <div class="smartscreen-alert">
@@ -448,8 +448,8 @@
                         <p>Sei l'unico proprietario e amministratore dei tuoi archivi clinici, senza dipendere dalla connessione internet o dalla stabilità di un Cloud esterno.</p>
                     </div>
                     <div class="security-micro-card">
-                        <h3>✅ Conformità GDPR Semplificata</h3>
-                        <p>Gestire l'archivio in locale semplifica gli adempimenti sulla privacy e ti permette di blindare facilmente il PC con i sistemi di crittografia disco seguendo i nostri tutorial dedicati.</p>
+                        <h3>🔐 Dati Cifrati con Password Master</h3>
+                        <p>Database, PDF, firme e bodychart sono cifrati sul tuo PC e si aprono solo con la tua Password Master. Se la dimentichi, il codice di recupero che ricevi sulla tua Gmail ti fa rientrare.</p>
                     </div>
                 </div>
             </div>
@@ -485,7 +485,7 @@
                         <div class="card-icon-left">📋</div>
                         <div class="card-content">
                             <h3>Cartelle Cliniche Illimitate</h3>
-                            <p>Compila il diario clinico diviso per cicli e sedute, mantenendo lo storico completo dei trattamenti senza limiti sul numero di pazienti.</p>
+                            <p>Compila il diario clinico diviso per cicli e sedute, a testo libero o con cartelle a riquadri (dolore, ROM, trattamento, obiettivi...) che puoi personalizzare. Lo storico completo dei trattamenti resta sempre consultabile, senza limiti sul numero di pazienti.</p>
                         </div>
                     </div>
 
@@ -521,7 +521,7 @@
                     <p>La versione <strong>Free</strong> è completamente autonoma ed è messa a disposizione della community. Trattandosi di una versione gratuita, non include un servizio di assistenza, ma offre un apposito pulsante per segnalare eventuali bug o proporre miglioramenti, di cui mi occuperò nel tempo libero per rendere il prodotto sempre più utile per voi. In futuro verranno introdotte funzionalità avanzate opzionali a pagamento (modulo Premium), ma le funzioni di base per la gestione e l'invio al Sistema TS resteranno liberamente utilizzabili per sempre.</p>
                     <p><strong>Nessun tracciamento sanitario:</strong> Poiché l'applicazione gira interamente in locale sul tuo computer, nessun dato sensibile dei tuoi pazienti transita mai su nostri server esterni.</p>
                     <p style="font-size: 0.88rem; border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 20px;">
-                        <strong>Consiglio per la sicurezza:</strong> Poiché i dati risiedono solo sul tuo PC (nella cartella dati dell'applicazione), ricorda di proteggere il tuo computer con password/crittografia di sistema e di effettuare periodicamente una copia di backup su chiavetta USB o disco esterno.
+                        <strong>Consiglio per la sicurezza:</strong> Poiché i dati risiedono solo sul tuo PC, scarica periodicamente (ad esempio ogni settimana) un backup dal programma: è cifrato, quindi puoi conservarlo su Google Drive, proteggendo l'account con la verifica in due passaggi, e tenerne una seconda copia su chiavetta USB. Non cancellare l'email con il codice di recupero: senza Password Master e senza codice i dati non si possono più aprire.
                     </p>
                 </div>
 
@@ -548,7 +548,8 @@
             <h2>Informativa sulla Privacy</h2>
             <p><strong>Referente del Sito:</strong> Team PhysioManager (Email: info@physiomanager.it).</p>
             <p><strong>Tipologia di dati raccolti:</strong> Questo sito web è una pagina statica di presentazione. Non viene fatto uso di alcun cookie di profilazione, cookie di tracciamento o script di analisi di terze parti. L'unico dato personale eventualmente raccolto è l'indirizzo email dell'utente laddove decida spontaneamente di inviare un messaggio alla casella di supporto.</p>
-            <p><strong>Dati inseriti nel Software:</strong> Il software scaricabile opera esclusivamente in modalità locale ("offline-first") sul dispositivo dell'utente. Nessun dato anagrafico, clinico o fiscale inserito nel programma viene trasmesso, raccolto o memorizzato dal sito web o dai creatori del software.</p>
+            <p><strong>Dati inseriti nel Software:</strong> I dati inseriti nel programma restano sul dispositivo dell'utente, conservati in forma cifrata. Nessun dato anagrafico, clinico o fiscale inserito nel programma viene raccolto o memorizzato dal sito web o dai creatori del software. Le email partono dall'account Gmail configurato dall'utente e le trasmissioni al Sistema Tessera Sanitaria vanno direttamente ai servizi del Ministero.</p>
+            <p><strong>Segnalazioni dal programma:</strong> Il pulsante "Segnala" del programma invia ai creatori del software, tramite un servizio esterno di inoltro moduli, solo il testo e il contatto facoltativo scritti dall'utente, usati esclusivamente per rispondere. Il modulo non va usato per comunicare dati dei pazienti.</p>
             <p><strong>Finalità del Trattamento:</strong> Gli indirizzi email ricevuti tramite contatto volontario saranno utilizzati esclusivamente per rispondere alle richieste di informazioni o di supporto tecnico inviate dagli utenti.</p>
             <p><strong>Conservazione e Cessione:</strong> I dati di contatto inviati via email non verranno mai ceduti a terzi, né utilizzati per attività di marketing senza espresso consenso.</p>
             <p><strong>Diritti dell'interessato:</strong> Ai sensi dell'Art. 15-22 del GDPR, l'utente può richiedere in qualsiasi momento la cancellazione o la modifica dei propri dati di contatto inviando una comunicazione all'indirizzo email di supporto.</p>
@@ -570,12 +571,18 @@
             
             <p><strong>3. LIMITAZIONE DI RESPONSABILITÀ (SISTEMA TS E FISCALITÀ)</strong><br>
             L'utente riconosce e accetta che il software costituisce un mero strumento di ausilio tecnico e che la verifica della correttezza, della completezza e della tempestività dei dati inseriti, delle fatture emesse, delle aliquote o regimi fiscali applicati e delle trasmissioni effettuate al Sistema Tessera Sanitaria (TS) o all'Agenzia delle Entrate rimane di sua esclusiva ed intera responsabilità.<br>
-            Nei limiti massimi consentiti dalla legge applicabile (art. 1229 c.c.), in nessun caso l'autore potrà essere ritenuto responsabile per danni diretti, indiretti, punitivi o consequenziali (inclusi sanzioni fiscali o amministrative, scarti di fatture, perdite di dati o interruzioni dell'attività professionale) derivanti dall'uso o dall'impossibilità di usare il software.</p>
-            
-            <p><strong>4. TRATTAMENTO DATI, PRIVACY E BACKUP</strong><br>
-            Il software opera esclusivamente in locale sul personal computer dell'utente. L'autore non raccoglie, accede né conserva in alcun modo i dati personali o sanitari inseriti dall'utente all'interno del programma. L'utente è l'unico Titolare del Trattamento dei dati dei propri pazienti ai sensi del Regolamento UE 2016/679 (GDPR) ed è l'unico responsabile della custodia, della riservatezza e dell'adozione di adeguate misure di sicurezza (inclusa l'eventuale cifratura del disco del proprio PC) e di salvataggio periodico (backup) sul proprio dispositivo.</p>
-            
-            <p><strong>5. LEGGE APPLICABILE</strong><br>
+            Nei limiti massimi consentiti dalla legge applicabile (art. 1229 c.c.), in nessun caso l'autore potrà essere ritenuto responsabile per danni diretti, indiretti, punitivi o consequenziali (inclusi, a titolo esemplificativo, sanzioni fiscali o amministrative, scarti di fatture, perdite di dati, anche dovute allo smarrimento della Password Master e del codice di recupero, o interruzioni dell'attività professionale) derivanti dall'uso o dall'impossibilità di usare il software.</p>
+
+            <p><strong>4. TRATTAMENTO DATI, PRIVACY E SICUREZZA</strong><br>
+            I dati inseriti nel programma restano sul personal computer dell'utente e sono conservati in forma cifrata. L'autore non raccoglie, non riceve e non conserva i dati personali o sanitari inseriti dall'utente, e non ha accesso alla Password Master né al codice di recupero.<br>
+            Alcune funzioni comunicano con l'esterno solo su azione dell'utente: le email (codice di recupero, fatture, consensi) partono dall'account Gmail configurato dall'utente; le trasmissioni al Sistema Tessera Sanitaria sono inviate ai servizi del Ministero; il programma verifica la disponibilità di aggiornamenti. Il modulo "Segnala" invia all'autore, tramite un servizio esterno, solo quanto scritto dall'utente nel modulo: non va usato per comunicare dati dei pazienti.<br>
+            L'utente è l'unico Titolare del Trattamento dei dati dei propri pazienti ai sensi del Regolamento UE 2016/679 (GDPR). La cifratura è una misura di sicurezza fornita dal software, ma non esonera l'utente dall'adottare le ulteriori misure adeguate (custodia del computer e delle credenziali, blocco del programma quando non è in uso, copie di sicurezza periodiche).</p>
+
+            <p><strong>5. PASSWORD MASTER, CODICE DI RECUPERO E BACKUP</strong><br>
+            I dati e i backup si aprono solo con la Password Master o con il codice di recupero, che viene inviato all'indirizzo Gmail dell'utente. La custodia di entrambi è responsabilità esclusiva dell'utente: in caso di smarrimento sia della Password Master sia del codice di recupero, i dati e i backup non potranno più essere aperti da nessuno, autore compreso.<br>
+            I backup prodotti dal programma sono cifrati. La scelta di dove conservarli (ad esempio un servizio cloud o un supporto esterno) e la loro protezione spettano all'utente; per i servizi cloud si raccomanda di proteggere l'account con la verifica in due passaggi.</p>
+
+            <p><strong>6. LEGGE APPLICABILE</strong><br>
             Le presenti condizioni sono regolate dalla legge italiana. L'utilizzo del software implica l'accettazione integrale delle presenti condizioni.</p>
         </div>
     </div>
